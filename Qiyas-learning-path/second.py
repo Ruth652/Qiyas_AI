@@ -1,3 +1,4 @@
+from functools import reduce
 # *args and **kwargs are used in function definitions to allow for variable-length arguments.
 def myFunc(*args , **kwargs):
     print("Non-keyword arguments:( * args)")
@@ -94,3 +95,50 @@ for f in func:
 c = [1, 2, 3, 4, 5]
 filtered = list(filter(lambda x: x % 2 ==0 , c))
 print(filtered)
+
+
+students = [
+ ("Abel", 45),
+ ("Sara", 80),
+ ("John", 66),
+ ("Mahi", 30),
+ ("Helen", 90)
+]
+
+
+"""
+Exercise 1: Student Score Analyzer
+Concepts Covered: Functions, Lists, Conditions, List Comprehension, Lambda, map()
+Problem:
+Create a program that stores student scores and calculates:
+• average score
+• highest score
+• lowest score
+• passed and failed students
+• bonus marks using map()
+• sorted students using lambda
+
+"""
+
+# average_score = sum(score for _, score in students) / len(students)
+average_score = reduce(lambda total, student: total + student[1], students, 0) / len(students)
+print("average_score", average_score)
+
+values = list(map(lambda student: student[1], students))
+highest_score = max(values)
+lowest_score =  min(values)
+print("Highest_score", highest_score)
+print("lowest_score", lowest_score)
+
+
+passed = list(filter(lambda student: student[1] >= 50, students)) 
+Failed = list(filter(lambda student: student[1] < 50, students))
+print("passed students", passed)
+print("failed students", Failed)
+
+bonus = list(map(lambda student:(student[0], student[1] + 10), students))
+students.sort(key=lambda student: student[1], reverse=True)
+print("bonuns", bonus)
+print("sorted", students)
+
+
