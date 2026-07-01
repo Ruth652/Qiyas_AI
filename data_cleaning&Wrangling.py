@@ -248,7 +248,8 @@ df = pd.DataFrame({
 4. Detect outliers.
 '''
 
-
+df["name"] = df["name"].str.strip()
+df["name"] = df["name"].fillna("Unknown")
 df["age"] = df["age"].fillna(df["age"].mean())
 df["join_date"] = pd.to_datetime(df["join_date"], format="mixed")
 
