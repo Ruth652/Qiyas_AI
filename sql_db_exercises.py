@@ -153,4 +153,4 @@ print("Customers whose total purchases exceed 1000:\n", result)
 #     .loc[lambda x: x > 1000]
 # )
 
-# print(result)
+# print(result)pip install seaborn scikit-learn scipy jupyter
