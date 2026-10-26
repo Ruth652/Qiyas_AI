@@ -91,3 +91,4 @@ cd exercises
 python pandas_exercise.py
 python news_scraper.py
 ```
+
